@@ -8,12 +8,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PaleChub extends Fish
 {
+    private GreenfootImage ogImage;
+    private GreenfootImage flipImage;
+    private int speed;
     /**
      * Act - do whatever the PaleChub wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public PaleChub() {
+        ogImage = new GreenfootImage("smlfish.png");
+        flipImage = new GreenfootImage("smlfishflip.png");
+        speed = -1;
+        if (Math.random() < 0.5) {
+            setImage(flipImage);
+            speed = 1;
+        }
+    }
+    
     public void act() 
     {
-        // Add your action code here.
+        swim();
+        if ( getX() == 1 || getX() == 899){
+            disappearAtEdge();
+        }
     }    
+    
+    public void swim() {
+        super.swim(speed);
+    }
 }

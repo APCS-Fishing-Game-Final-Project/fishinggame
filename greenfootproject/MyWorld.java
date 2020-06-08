@@ -22,4 +22,26 @@ public class myWorld extends World
         player = new Player();
         addObject(player, 460, 530);
     }
+    
+    public void act() {
+        generateSeaBass();
+        generateCatfish();
+        generatePaleChub();
+    }
+    
+    public void generateSeaBass() {
+        if ( Math.random() < 0.003 ) {
+            addObject(new SeaBass(), (int) ( Math.random()*500 + 200), (int) (Math.random()*300) + 100);
+        }
+    }
+    public void generateCatfish() {
+        if ( Math.random() < 0.004 ) {
+            addObject(new Catfish(), (int) ( Math.random()*500 + 200), (int) (Math.random()*300) + 100);
+        }
+    }
+    public void generatePaleChub() {
+        if ( Math.random() < 0.001 ) {
+            addObject(new PaleChub(), (int) ( Math.random()*500 + 200), (int) (Math.random()*300) + 100);
+        }
+    }
 }
