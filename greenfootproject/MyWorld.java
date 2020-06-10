@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class myWorld extends World
 {
     private Player player;
+    private BarBack barBack;
+    private BarFrame barFrame;
+    private BarColor barColor;
     
     /**
      * Constructor for objects of class myWorld.
@@ -17,10 +20,21 @@ public class myWorld extends World
     public myWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(900, 600, 1); 
+        super(900, 600, 1, false); 
         
         player = new Player();
         addObject(player, 460, 530);
+        
+        barBack = new BarBack();
+        addObject(barBack, 57, 500);
+        
+        barFrame = new BarFrame();
+        addObject(barFrame, 57, 500);
+        
+        barColor = new BarColor();
+        addObject(barColor, 57, 703);
+        
+        setPaintOrder(BarFrame.class, BarColor.class, BarBack.class);
     }
     
     public void act() {
