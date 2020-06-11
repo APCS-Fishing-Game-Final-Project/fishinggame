@@ -36,4 +36,11 @@ public class PaleChub extends Fish
     public void swim() {
         super.swim(speed);
     }
+    
+    public void ifTouchingBait(){
+        if(isTouching(Bait.class))
+        { 
+            getWorld().removeObject(this);
+        }
+    }
 }

@@ -36,4 +36,11 @@ public class SeaBass extends Fish
         super.swim(speed);
     }
        
+    
+    public void ifTouchingBait(){
+        if(isTouching(Bait.class))
+        { 
+            getWorld().removeObject(this);
+        }
+    }
 }

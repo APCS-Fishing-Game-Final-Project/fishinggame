@@ -28,6 +28,7 @@ public class Catfish extends Fish
     
     public void act() {
         swim();
+        ifTouchingBait();
         if ( getX() == 1 || getX() == 899){
             disappearAtEdge();
         }
@@ -35,6 +36,13 @@ public class Catfish extends Fish
 
     public void swim() {
         super.swim(speed);
+    }
+    
+    public void ifTouchingBait(){
+        if(isTouching(Bait.class))
+        { 
+            getWorld().removeObject(this);
+        }
     }
     
 
